@@ -15,10 +15,23 @@ var philippines = new Location('Philippines', 'Destination 6', null, 'philippine
 var locations = [seville, canaryIslands, capeVerde, straitOfMagellan, guam, philippines];
 var findLocation = function(target) {
 	return locations.filter(function(loc){
+
 		return loc.id === target;
-	})[0];
+	});
 }
 
+var location = function(loc) {
+	var locationFound = findLocation(loc)
+	if (locationFound.length === 0) {
+		return new Location(loc, 'Magellan did not travel here', null, null);
+	}
+	else {
+		return locationFound[0];
+	}
+}
+
+
+
 module.exports = {
-	findLocation: findLocation
+	findLocation: location
 };
