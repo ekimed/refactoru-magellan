@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1 #{location.name}
+	p #{location.description}
+
+	if location.next !== null
+		a(href="/"+location.next) Next
